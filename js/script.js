@@ -72,3 +72,32 @@ function aposent(){
         document.getElementById("areaAps").innerHTML += "<p> Não pode aposentar</p>"
     }
 }
+
+function calcVolBsk(){
+    document.getElementById("numx1").innerHTML = ""
+    document.getElementById("numx2").innerHTML = ""
+    document.getElementById("dtt").innerHTML = ""
+    let valorA =  Number(document.getElementById("vlrA").value)
+    let valorB =  Number(document.getElementById("vlrB").value)
+    let valorC =  Number(document.getElementById("vlrC").value)
+    const delta = ( (valorB ** 2) - 4 * valorA * valorC)
+    if (delta < 0){
+        document.getElementById("numx1").innerText =  "Esta equação não possui raízes reais, ou seja, suas raízes são números complexos"
+        exit
+    }
+    else{
+        if(delta == 0){
+            const x = (-1 * valorB) / (2 * valorA)
+            document.getElementById("x0").innerText = "X: "+ x
+        }
+        else{
+            const x1 = (((-1 *(valorB)) - (delta ** 0.5)) / (2 * valorA))
+            const x2 =(((-1 *(valorB)) + (delta ** 0.5)) / (2 * valorA))
+            document.getElementById("numx1").innerText = "X1: "+ x1
+            document.getElementById("numx2").innerText = "X2: "+ x2
+            document.getElementById("dtt").innerText = "Delta: "+ delta
+        }
+
+    }
+}
+
